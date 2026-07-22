@@ -58,7 +58,26 @@
           :required-evidence ["顧客先登録記録 (client-site registration record)"
                                "監視対象システム記録 (monitored-system inventory record)"
                                "機械警備業務開始届出 reference"
-                               "設置工事許可・適合確認記録 (installation-permit/compliance-check confirmation record)"]}})
+                               "設置工事許可・適合確認記録 (installation-permit/compliance-check confirmation record)"]}
+   ;; AUS models New South Wales specifically, not a national figure -- verified
+   ;; 2026-07-23 by fetching legislation.nsw.gov.au (Security Industry Act 1997
+   ;; No 157, whole-Act HTML view) and police.nsw.gov.au (SLED "About SLED" page)
+   ;; directly this session. Australia's private-security licensing is
+   ;; STATE-based: each state/territory runs its own separate regime under its
+   ;; own legislation, and no single Commonwealth (federal) security-industry
+   ;; licensing Act was found in the sources checked. NSW was chosen per the
+   ;; task brief as one specific, citable regime rather than a fabricated
+   ;; national "AUS" figure -- this entry does not assert uniformity across
+   ;; the other seven states/territories, which this catalog does not cover.
+   "AUS" {:name "Australia (New South Wales)"
+          :owner-authority "Security Licensing and Enforcement Directorate (SLED), NSW Police Force"
+          :legal-basis "Security Industry Act 1997 (NSW) No 157, s 7 (Offence of carrying on unauthorised security activities) -- requires a master licence or a \"class 1\"/\"class 2\" licence; s 12(1)(c) creates the \"class 2C\" licence subclass covering sale, installation, maintenance, repair and servicing of security equipment (including electronic security equipment) and locksmithing"
+          :national-spec "Electronic security-systems services map onto NSW class 2C (install/maintain/repair/service security equipment incl. electronic security equipment, Security Industry Act 1997 (NSW) s 12(1)(c)) and class 1E (patrol/protect/guard while carrying on monitoring centre operations, s 11(1)(e)) licence subclasses, administered under the Security Industry Regulation 2016 by SLED -- distinct from personnel-guarding subclasses (e.g. class 1A unarmed patrol), matching this catalog's electronic-security-vs-guarding separation already documented for USA/GBR/JPN above"
+          :provenance "https://www.police.nsw.gov.au/online_services/sled"
+          :required-evidence ["client-site registration record"
+                               "monitored-system (alarm/CCTV/access-control) inventory record"
+                               "NSW class 2C (electronic security equipment) licence reference"
+                               "installation-permit/compliance-check confirmation record"]}})
 
 (defn spec-basis
   "The jurisdiction's requirement map, or nil -- nil means NO spec-basis,
