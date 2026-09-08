@@ -62,7 +62,7 @@
 
   Usage: `clojure -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [jp-go-dds.skin]
             [langgraph.graph :as g]
             [secsys.facts :as facts]
@@ -375,7 +375,7 @@
                         (store/supply-history db))
         names   (deep-key-names records)]
     {:approvers  (vec (sort (into #{} (keep #(:by (fact-of (:audit %) :approval-granted))) runs)))
-     :on-record? (boolean (some #(contains? approver-key-names (str/lower-case %)) names))
+     :on-record? (boolean (some #(contains? approver-key-names (str/lower %)) names))
      :on-ledger? (boolean (some #(= :approval-granted (:t %)) (store/ledger db)))}))
 
 ;; ----------------------------- sections -----------------------------
