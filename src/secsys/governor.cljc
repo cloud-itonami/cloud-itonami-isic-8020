@@ -119,7 +119,7 @@
                                      open, off a dedicated `:supply-
                                      coordination-open?` fact (never a
                                      `:status` value)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [secsys.store :as store]))
 
 (def confidence-floor 0.6)
@@ -216,8 +216,8 @@
   `scope-exclusion-actions` docstring for why these are phrased as
   full action phrases, never bare nouns. Evaluated UNCONDITIONALLY."
   [_request proposal]
-  (let [text (str/lower-case (str (:summary proposal) " " (:rationale proposal)))]
-    (when (some #(str/includes? text (str/lower-case %)) scope-exclusion-actions)
+  (let [text (str/lower (str (:summary proposal) " " (:rationale proposal)))]
+    (when (some #(str/includes? text (str/lower %)) scope-exclusion-actions)
       [{:rule :scope-exclusion-violation
         :detail "提案文言が警報応動派遣/入退室管理上書きの確定行為に該当する表現を含みます -- 恒久的にブロック"}])))
 

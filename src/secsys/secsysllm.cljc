@@ -53,7 +53,7 @@
   relying on wording care alone."
   (:require #?(:clj  [clojure.edn :as edn]
                :cljs [cljs.reader :as edn])
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [secsys.facts :as facts]
             [secsys.store :as store]
             [langchain.model :as model]))

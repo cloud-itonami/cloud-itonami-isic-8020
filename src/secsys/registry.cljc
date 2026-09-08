@@ -19,7 +19,7 @@
   both of those remain a certified emergency-services/security-
   authority's own act, entirely outside this actor's closed op
   allowlist (see `secsys.governor` ns docstring `SCOPE`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is
@@ -52,7 +52,7 @@
     (throw (ex-info "installation-schedule: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "installation-schedule: sequence must be >= 0" {})))
-  (let [schedule-number (str (str/upper-case jurisdiction) "-INST-" (zero-pad sequence 6))
+  (let [schedule-number (str (str/upper jurisdiction) "-INST-" (zero-pad sequence 6))
         record {"record_id" schedule-number
                 "kind" "installation-schedule-draft"
                 "site_id" site-id
@@ -77,7 +77,7 @@
     (throw (ex-info "supply-coordination: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "supply-coordination: sequence must be >= 0" {})))
-  (let [supply-number (str (str/upper-case jurisdiction) "-SUP-" (zero-pad sequence 6))
+  (let [supply-number (str (str/upper jurisdiction) "-SUP-" (zero-pad sequence 6))
         record {"record_id" supply-number
                 "kind" "equipment-supply-coordination-draft"
                 "site_id" site-id
