@@ -178,7 +178,7 @@ store_contract_test.clj`.
   besides what was already correct).
 - Establishes the closed four-op/four-action allowlist as a literal,
   structurally-enforced (not merely documented) invariant.
-- `test/secsys/governor_self_trip_test.clj` is a dedicated,
+- `test/secsys/governor_self_trip_test.cljk` is a dedicated,
   fleet-pattern regression test against the self-tripping scope-
   exclusion bug class -- not just careful wording.
 - `MemStore` ‖ `DatomicStore` parity is proven by `test/secsys/

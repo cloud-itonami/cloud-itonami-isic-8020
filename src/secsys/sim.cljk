@@ -23,7 +23,7 @@
   (`effect-not-propose`/`op-not-allowlisted`/`action-not-allowlisted`/
   `scope-exclusion-violation`) are never reachable via this well-
   behaved mock advisor's own output -- they are exercised directly in
-  `test/secsys/governor_contract_test.clj` against a hand-crafted
+  `test/secsys/governor_contract_test.cljk` against a hand-crafted
   adversarial proposal instead."
   (:require [langgraph.graph :as g]
             [secsys.store :as store]

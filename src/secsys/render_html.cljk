@@ -664,7 +664,7 @@
      "  <p>Regenerate with <code>clojure -M:dev:render-html [out-file]</code> from the repo root. "
      "The output is deterministic: no timestamps, no random ids, every collection either sorted or "
      "already ordered by the append-only ledger, so two consecutive runs are byte-identical.</p>\n"
-     "  <p class=\"muted\">cloud-itonami-isic-8020 &middot; source: <code>src/secsys/render_html.clj</code> "
+     "  <p class=\"muted\">cloud-itonami-isic-8020 &middot; source: <code>src/secsys/render_html.cljk</code> "
      "&middot; actor: <code>secsys.operation</code> &middot; censor: <code>secsys.governor</code> "
      "&middot; SSoT: <code>secsys.store</code></p>\n"
      "</footer>\n"
