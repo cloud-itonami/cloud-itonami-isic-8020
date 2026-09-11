@@ -60,7 +60,7 @@
   `:governor-hold` facts -- a console that shows no real hold is not
   evidence of a governor. Build-time invariant, not a convention.
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [kotoba.lang.text :as str]
             [jp-go-dds.skin]
@@ -637,7 +637,7 @@
      "<span class=\"badge\">installation scheduling / concern flagging / equipment supply always human-approved</span></p>\n"
      "<div class=\"banner\">\n"
      "  <p>This page is <strong>generated at build time by running the real actor</strong> "
-     "(<code>clojure -M:dev:render-html</code> &rarr; <code>secsys.render-html</code>), not written by hand. "
+     "(<code>kbb -M:dev:render-html</code> &rarr; <code>secsys.render-html</code>), not written by hand. "
      "Every row below traces to seeded store data or to post-run store / audit state: "
      "<strong>" (count runs) "</strong> real graph runs, "
      "<strong>" (count (store/ledger db)) "</strong> ledger facts, "
@@ -661,7 +661,7 @@
      (jurisdictions-section)
      "</main>\n"
      "<footer>\n"
-     "  <p>Regenerate with <code>clojure -M:dev:render-html [out-file]</code> from the repo root. "
+     "  <p>Regenerate with <code>kbb -M:dev:render-html [out-file]</code> from the repo root. "
      "The output is deterministic: no timestamps, no random ids, every collection either sorted or "
      "already ordered by the append-only ledger, so two consecutive runs are byte-identical.</p>\n"
      "  <p class=\"muted\">cloud-itonami-isic-8020 &middot; source: <code>src/secsys/render_html.cljk</code> "
