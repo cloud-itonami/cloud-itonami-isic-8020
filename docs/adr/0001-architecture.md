@@ -183,15 +183,15 @@ store_contract_test.clj`.
   exclusion bug class -- not just careful wording.
 - `MemStore` ‖ `DatomicStore` parity is proven by `test/secsys/
   store_contract_test.clj`.
-- The demo (`clojure -M:dev:run`) walks one clean record-log +
+- The demo (`kbb -M:dev:run`) walks one clean record-log +
   installation-schedule + equipment-supply-coordination + concern-
   flag lifecycle, plus seven HARD-hold scenarios (no-spec-basis,
   unregistered record on two different ops, unconfirmed installation
   permit, an open security concern on two different ops, an
   already-open equipment-supply coordination, a double-schedule, and
   a double supply-coordination), end-to-end.
-- `clojure -M:test` / `clojure -M:dev:test`: 44 tests / 405 assertions,
-  0 failures, 0 errors. `clojure -M:lint` (clj-kondo): 0 errors, 0
+- `kbb -M:test` / `kbb -M:dev:test`: 44 tests / 405 assertions,
+  0 failures, 0 errors. `kbb -M:lint` (clj-kondo): 0 errors, 0
   warnings.
 
 ## References

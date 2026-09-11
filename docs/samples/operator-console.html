@@ -2471,7 +2471,7 @@ img,svg { max-width: 100%; height: auto; }</style>
 </header>
 <p class="subtitle"><span class="badge">read-only sample</span> <span class="badge">governor-gated</span> <span class="badge">installation scheduling / concern flagging / equipment supply always human-approved</span></p>
 <div class="banner">
-  <p>This page is <strong>generated at build time by running the real actor</strong> (<code>clojure -M:dev:render-html</code> &rarr; <code>secsys.render-html</code>), not written by hand. Every row below traces to seeded store data or to post-run store / audit state: <strong>18</strong> real graph runs, <strong>18</strong> ledger facts, <strong>13</strong> HARD governor holds. The generator refuses to write this file at all if the run produces zero governor holds &mdash; a console that shows no real hold is not evidence of a governor.</p>
+  <p>This page is <strong>generated at build time by running the real actor</strong> (<code>kbb -M:dev:render-html</code> &rarr; <code>secsys.render-html</code>), not written by hand. Every row below traces to seeded store data or to post-run store / audit state: <strong>18</strong> real graph runs, <strong>18</strong> ledger facts, <strong>13</strong> HARD governor holds. The generator refuses to write this file at all if the run produces zero governor holds &mdash; a console that shows no real hold is not evidence of a governor.</p>
   <p class="muted">This actor coordinates security-systems installation, monitoring and maintenance scheduling only. It is never the alarm-response dispatcher and never the access-control-override authority: those acts cannot be represented in its closed op/action allowlists at all, and a second, independent layer scans every proposal&rsquo;s own prose for them.</p>
 </div>
 <main>
@@ -2640,7 +2640,7 @@ img,svg { max-width: 100%; height: auto; }</style>
   </section>
 </main>
 <footer>
-  <p>Regenerate with <code>clojure -M:dev:render-html [out-file]</code> from the repo root. The output is deterministic: no timestamps, no random ids, every collection either sorted or already ordered by the append-only ledger, so two consecutive runs are byte-identical.</p>
+  <p>Regenerate with <code>kbb -M:dev:render-html [out-file]</code> from the repo root. The output is deterministic: no timestamps, no random ids, every collection either sorted or already ordered by the append-only ledger, so two consecutive runs are byte-identical.</p>
   <p class="muted">cloud-itonami-isic-8020 &middot; source: <code>src/secsys/render_html.cljk</code> &middot; actor: <code>secsys.operation</code> &middot; censor: <code>secsys.governor</code> &middot; SSoT: <code>secsys.store</code></p>
 </footer>
 </body></html>

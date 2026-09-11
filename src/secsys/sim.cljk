@@ -1,5 +1,5 @@
 (ns secsys.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean site through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean site through
   record logging -> installation-schedule coordination (escalate/
   approve/commit) -> equipment-supply coordination (escalate/approve/
   commit) -> security-concern flag (always escalate/approve/commit),
