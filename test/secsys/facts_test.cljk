@@ -1,5 +1,5 @@
 (ns secsys.facts-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [secsys.facts :as facts]))
 
 (deftest usa-has-a-spec-basis
