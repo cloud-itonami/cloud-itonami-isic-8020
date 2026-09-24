@@ -3,7 +3,7 @@
   regress on: `:schedule-installation-operation`/`:flag-security-
   concern`/`:coordinate-equipment-supply` must NEVER be a member of
   any phase's `:auto` set."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [secsys.phase :as phase]))
 
 (deftest schedule-installation-operation-never-auto-at-any-phase

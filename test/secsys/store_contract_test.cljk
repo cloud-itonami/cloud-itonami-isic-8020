@@ -5,7 +5,7 @@
   configuration change, not a rewrite -- see `cloud-itonami-isic-4912`'s
   own `railfreight.store-contract-test` for the same pattern on a
   sibling actor."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [secsys.store :as store]))
 
 (defn- backends []

@@ -13,7 +13,7 @@
     allowlisted`/`scope-exclusion-violation`) directly against hand-
     crafted adversarial proposals, since the well-behaved mock advisor
     never reaches them on its own (see `secsys.sim` ns docstring)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [langgraph.graph :as g]
             [secsys.governor :as governor]
             [secsys.secsysllm :as secsysllm]
