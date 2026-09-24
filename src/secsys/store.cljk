@@ -37,7 +37,7 @@
   an immutable log -- the audit trail a client or regulator trusting a
   security-systems operator needs, and the evidence an operator needs
   if a schedule or a supply-coordination action is later disputed."
-  (:require #?(:clj  [clojure.edn :as edn]
+  (:require #?(:clj  [kotoba.lang.edn :as edn]
                :cljs [cljs.reader :as edn])
             [secsys.registry :as registry]
             [langchain.db :as d]))
