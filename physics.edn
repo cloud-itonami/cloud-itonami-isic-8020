@@ -1,0 +1,44 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": installation-support rigs, camera-alignment and
+;; cable-routing assist, and periodic system-health inspection robots work
+;; for a security-systems service company (ISIC 8020: alarm, CCTV and
+;; access-control installation and monitoring). Their physical work: holding
+;; a CCTV camera up to its wall mount while it is aligned and fixed,
+;; proof-loading the bolt that carries the camera bracket, and driving the
+;; site perimeter on a health-inspection round.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-8020"
+ :cases
+ [{:id :camera-up-to-wall-mount
+   :kind :manipulator
+   :procedure "installation rig arm lifts a CCTV camera from the rig tray up to its wall-mount position and holds it for alignment"
+   :params {:l1-m 0.70 :l2-m 0.60 :m1-kg 7.0 :m2-kg 4.5
+            :from [0.40 0.10] :to [0.95 0.75] :duration-s 3.0 :steps 600}
+   :sweep {:param :payload-kg :values [0.5 1.5 3.0 5.0 8.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 150.0 :basis "estimate: continuous shoulder torque of a 10-15 kg payload class collaborative arm on a mobile rig"}
+   :boundary {:lo 0.1 :hi 30.0}}
+  {:id :bracket-bolt-proof-load
+   :kind :material
+   :procedure "rig proof-loads the property class 4.6 steel bolt that carries a pole-mounted PTZ camera bracket, for candidate bolt sizes and corrosion-thinned bolts"
+   :params {:length-m 0.05 :youngs-modulus-pa 205.0e9 :yield-stress-pa 240.0e6 :hardening-pa 1.0e9
+            :density-kg-m3 7850.0 :max-force-n 6000.0}
+   :sweep {:param :area-m2 :values [8.78e-6 10.5e-6 12.5e-6 14.2e-6 20.1e-6]}
+   :quantity :yield-force-n
+   :limit {:min 2500.0 :basis "estimate: tension in the single most-loaded anchor of a PTZ camera arm bracket including prying and wind load, with safety factor; yield 240 MPa and stress areas M4 (8.78 mm2), M5 (14.2 mm2), M6 (20.1 mm2) per ISO 898-1; the intermediate areas stand for corrosion loss"}
+   :boundary {:lo 5.0e-6 :hi 22.0e-6}}
+  {:id :perimeter-inspection-round
+   :kind :transport
+   :procedure "system-health inspection rover drives the site perimeter between camera poles and alarm panels, up a 3 degree driveway"
+   :params {:mass-kg 55.0 :payload-kg 6.0 :v-max-mps 1.5 :a-max-mps2 0.6
+            :brake-decel-mps2 1.0 :drive-force-n 150.0 :crr 0.025 :slope-deg 3.0
+            :cog-height-m 0.40 :support-half-length-m 0.30 :max-time-s 3600.0}
+   :sweep {:param :distance-m :values [50.0 150.0 300.0 500.0 800.0]}
+   :quantity :cycle-time-s
+   :limit {:max 420.0 :basis "estimate: one inspection leg must finish within the 7-minute gap between monitoring-center health polls"}
+   :boundary {:lo 20.0 :hi 1500.0}}]}
